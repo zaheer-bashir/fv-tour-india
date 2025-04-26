@@ -1,0 +1,81 @@
+'use client';
+
+import Link from 'next/link';
+import { PhoneCall, Send, Mail } from 'lucide-react';
+
+function TopHeader() {
+  return (
+    <header
+      className="
+        text-white font-medium bg-cover'
+        border-b border-white/20
+      "
+      style={{
+        backgroundImage: "url('/slide_hero.jpg')"
+      }}
+      aria-label="Top bar with contact information"
+    >
+      <div
+        className="
+          max-w-5xl mx-auto 
+          h-[44px] px-5 text-[16px] tracking-wide
+          flex items-center justify-between 
+        "
+      >
+        {/* Contact Phone Numbers */}
+        <div className="flex items-center gap-2 shrink-0">
+          <PhoneCall
+            size={16}
+            className="stroke-[2]"
+            aria-hidden="true"
+          />
+          <span className="sr-only">Phone:</span>
+          <a
+            href="tel:+911141573677"
+            className="hover:underline"
+            aria-label="Call us at +91-11-41573677"
+          >
+            +91-11-41573677
+          </a>
+
+          <span className="mx-2" aria-hidden="true">|</span>
+
+          <Send
+            size={16}
+            className="stroke-[2] -rotate-12"
+            aria-hidden="true"
+          />
+          <span className="sr-only">WhatsApp:</span>
+          <a
+            href="https://wa.me/919718718254"
+            className="hover:underline"
+            aria-label="WhatsApp us at +91-9718718254"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            +91-9718718254
+          </a>
+        </div>
+
+        {/* Contact Email */}
+        <div className="flex items-center gap-2 shrink-0">
+          <Mail
+            size={16}
+            className="stroke-[2]"
+            aria-hidden="true"
+          />
+          <span className="sr-only">Email:</span>
+          <Link
+            href="mailto:sales@treetrunktravel.com"
+            className="hover:underline"
+            aria-label="Email us at sales@treetrunktravel.com"
+          >
+            sales@treetrunktravel.com
+          </Link>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+export { TopHeader };
