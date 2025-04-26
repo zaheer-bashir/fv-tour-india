@@ -1,34 +1,29 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { PhoneCall, Send, Mail } from 'lucide-react';
+import Link from "next/link";
+import { PhoneCall, Send, Mail } from "lucide-react";
 
 function TopHeader() {
   return (
     <header
       className="
-        text-white font-medium bg-cover'
+        text-white font-medium bg-cover
         border-b border-white/20
       "
       style={{
-        backgroundImage: "url('/slide_hero.jpg')"
+        backgroundImage: "url('/slide_hero.jpg')",
       }}
       aria-label="Top bar with contact information"
     >
       <div
         className="
           max-w-5xl mx-auto 
-          h-[44px] px-5 text-[16px] tracking-wide
-          flex items-center justify-between 
+          h-auto md:h-[44px] px-3 md:px-5 text-[15px] md:text-[16px] tracking-wide
+          flex flex-col md:flex-row items-start md:items-center justify-between gap-2 md:gap-0 py-2 md:py-0
         "
       >
-        {/* Contact Phone Numbers */}
         <div className="flex items-center gap-2 shrink-0">
-          <PhoneCall
-            size={16}
-            className="stroke-[2]"
-            aria-hidden="true"
-          />
+          <PhoneCall size={16} className="stroke-[2]" aria-hidden="true" />
           <span className="sr-only">Phone:</span>
           <a
             href="tel:+911141573677"
@@ -38,7 +33,9 @@ function TopHeader() {
             +91-11-41573677
           </a>
 
-          <span className="mx-2" aria-hidden="true">|</span>
+          <span className="mx-2 hidden md:inline" aria-hidden="true">
+            |
+          </span>
 
           <Send
             size={16}
@@ -59,11 +56,7 @@ function TopHeader() {
 
         {/* Contact Email */}
         <div className="flex items-center gap-2 shrink-0">
-          <Mail
-            size={16}
-            className="stroke-[2]"
-            aria-hidden="true"
-          />
+          <Mail size={16} className="stroke-[2]" aria-hidden="true" />
           <span className="sr-only">Email:</span>
           <Link
             href="mailto:sales@treetrunktravel.com"

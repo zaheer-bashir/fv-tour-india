@@ -101,9 +101,9 @@ function TourPlanForm() {
             />
           </div>
 
-          <div className="flex gap-6 items-center justify-between w-full md:col-span-2">
-            <div className="flex flex-1 items-center justify-between gap-4">
-              <label className="font-semibold">Date of Travel</label>
+          <div className="flex flex-col md:flex-row gap-6 items-stretch justify-between w-full md:col-span-2">
+            <div className="flex flex-1 flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+              <label className="font-semibold mb-2 md:mb-0">Date of Travel</label>
               <div className="flex items-center gap-4">
                 <RadioGroup.Root
                   value={fixedDate ? "fixed" : "anytime"}
@@ -134,11 +134,11 @@ function TourPlanForm() {
               </div>
               <input
                 type="month"
-                className="mt-3 h-10 rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
+                className="mt-3 md:mt-0 h-10 rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none w-full md:w-auto"
               />
             </div>
-            <div className="flex flex-1 items-center gap-4">
-              <div className="flex flex-col gap-4">
+            <div className="flex flex-1 flex-col md:flex-row items-stretch gap-4">
+              <div className="flex flex-col gap-2 flex-1">
                 <label className="text-sm font-semibold">Duration</label>
                 <input
                   type="text"
@@ -146,8 +146,7 @@ function TourPlanForm() {
                   className="h-10 rounded-md border border-gray-300 px-3 text-sm focus:border-blue-500 focus:outline-none"
                 />
               </div>
-
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-2 flex-1">
                 <label className="font-semibold">Total Adults</label>
                 <input
                   type="number"
@@ -156,8 +155,7 @@ function TourPlanForm() {
                   className="h-10 w-full rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
                 />
               </div>
-
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-2 flex-1">
                 <label className="font-semibold">Kids (Age 6‑11)</label>
                 <input
                   type="number"
