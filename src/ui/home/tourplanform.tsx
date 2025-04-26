@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import * as RadioGroup from "@radix-ui/react-radio-group";
@@ -12,19 +12,25 @@ function TourPlanForm() {
   return (
     <section
       className="
-      bg-cover bg-center px-4 py-20"
+      bg-cover bg-center px-4 py-10"
       style={{
         backgroundImage: "url('/slide_hero.jpg')",
       }}
     >
-      <div className="relative max-w-3xl mx-auto rounded-xl bg-white p-10 shadow-lg text-[12px]" style={{
-        borderRadius: "40px 40px 10px 10px",
-        border: "15px solid #090",
-        color: "#333",
-        borderBottomColor: "#FC3",
-        borderTopColor: "#09F",
-        borderLeftColor: "#C00",
-      }}>
+      <h2 className="mb-3 text-center text-white text-2xl font-bold md:text-3xl">
+        WELCOME TO TOUR OF INDIA
+      </h2>
+      <div
+        className="relative max-w-5xl mx-auto rounded-xl bg-white px-4 py-5 shadow-lg text-[12px]"
+        style={{
+          borderRadius: "40px 40px 10px 10px",
+          border: "15px solid #090",
+          color: "#333",
+          borderBottomColor: "#FC3",
+          borderTopColor: "#09F",
+          borderLeftColor: "#C00",
+        }}
+      >
         <h2 className="mb-8 text-2xl text-center font-bold tracking-wide text-red-700">
           LET’S MAKE YOUR TOUR PLAN
         </h2>
@@ -95,8 +101,8 @@ function TourPlanForm() {
             />
           </div>
 
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-            <div className="flex flex-col gap-4">
+          <div className="flex gap-6 items-center justify-between w-full md:col-span-2">
+            <div className="flex flex-1 items-center justify-between gap-4">
               <label className="font-semibold">Date of Travel</label>
               <div className="flex items-center gap-4">
                 <RadioGroup.Root
@@ -126,41 +132,40 @@ function TourPlanForm() {
                   </div>
                 </RadioGroup.Root>
               </div>
-              {fixedDate && (
+              <input
+                type="month"
+                className="mt-3 h-10 rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
+              />
+            </div>
+            <div className="flex flex-1 items-center gap-4">
+              <div className="flex flex-col gap-4">
+                <label className="text-sm font-semibold">Duration</label>
                 <input
-                  type="date"
-                  className="mt-3 h-10 rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
+                  type="text"
+                  placeholder="Duration"
+                  className="h-10 rounded-md border border-gray-300 px-3 text-sm focus:border-blue-500 focus:outline-none"
                 />
-              )}
-            </div>
-          
-            <div className="flex flex-col gap-4">
-              <label className="text-sm font-semibold">Duration</label>
-              <input
-                type="text"
-                placeholder="Duration"
-                className="h-10 rounded-md border border-gray-300 px-3 text-sm focus:border-blue-500 focus:outline-none"
-              />
-            </div>
-          
-            <div className="flex flex-col gap-4">
-              <label className="font-semibold">Total Adults</label>
-              <input
-                type="number"
-                min={1}
-                defaultValue={1}
-                className="h-10 w-full rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
-              />
-            </div>
-          
-            <div className="flex flex-col gap-4">
-              <label className="font-semibold">Kids (Age 6‑11)</label>
-              <input
-                type="number"
-                min={0}
-                defaultValue={0}
-                className="h-10 w-full rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
-              />
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <label className="font-semibold">Total Adults</label>
+                <input
+                  type="number"
+                  min={1}
+                  defaultValue={1}
+                  className="h-10 w-full rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
+                />
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <label className="font-semibold">Kids (Age 6‑11)</label>
+                <input
+                  type="number"
+                  min={0}
+                  defaultValue={0}
+                  className="h-10 w-full rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
+                />
+              </div>
             </div>
           </div>
 
@@ -250,16 +255,18 @@ function TourPlanForm() {
           </div>
         </form>
 
-        <p className="mt-10 text-center font-medium text-gray-700">
+        <p className="mt-10 text-center text-xl font-medium text-gray-700 border-t border-gray-300 pt-4">
           Or
           <br />
-          Chat on <span className="font-bold text-green-600">Whatsapp</span> for
-          quick response. <a href="#" className="font-bold text-red-600">Click Here</a>
+          Chat on <span className="font-bold text-red-600">Whatsapp</span> for
+          quick response.{" "}
+          <a href="#" className="font-bold text-red-600">
+            Click Here
+          </a>
         </p>
       </div>
     </section>
   );
 }
-
 
 export { TourPlanForm };

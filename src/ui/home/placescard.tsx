@@ -81,7 +81,7 @@ const tourPackages = [
 const Ribbon = ({ label, color }: { label: string; color: string }) => (
   <span
     className={clsx(
-      "absolute top-2 left-4 z-10 rotate-[-45deg] origin-top-left px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-md",
+      "absolute top-15 left-[-6px] z-10 rotate-[-45deg] origin-top-left px-2 py-1 w-24 text-center text-[10px] font-bold uppercase tracking-wider text-white shadow-md",
       color
     )}
   >
