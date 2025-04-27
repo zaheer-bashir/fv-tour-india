@@ -1,6 +1,5 @@
 export * from "./button";
 export * from "./card";
-export * from "./carousel";
 export * from "./input";
 export * from "./label";
 export * from "./menubar";
@@ -8,4 +7,3 @@ export * from "./table";
 export * from "./tabs";
 export * from "./tooltip";
 export * from "./dropdown-menu";
-export * from "../../ui/home/sections/guide-section";

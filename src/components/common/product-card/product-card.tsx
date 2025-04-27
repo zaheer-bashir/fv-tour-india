@@ -1,9 +1,16 @@
 import React from "react";
 import Image from "next/image";
 
-import { ProductAttributes, SKU } from "@/types";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+
+interface ProductAttributes {
+  name: string;
+}
+
+interface SKU {
+  price: number;
+}
 
 interface ProductCardProps {
   images: string[];
@@ -29,8 +36,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
         <Image
           src={images[0]}
           alt={attributes.name}
-          height="60"
-          width="60"
+          height={60}
+          width={60}
           className="w-full h-full object-cover rounded-t-xl"
           style={{ objectPosition: "top" }}
         />
