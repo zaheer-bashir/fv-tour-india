@@ -7,8 +7,9 @@ import "./globals.css";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Tours India",
-  description: "Tours India",
+  title: "WELCOME TO INDIA TOUR | TOUR-OF-INDIA.COM",
+  description:
+    "Discover the magic of India with our expertly curated tour packages. Explore vibrant cities, ancient heritage, breathtaking landscapes, and rich cultural experiences. Whether you seek adventure, spirituality, or relaxation, TOUR-OF-INDIA.COM offers unforgettable journeys tailored for every traveler.",
 };
 
 export default function RootLayout({
