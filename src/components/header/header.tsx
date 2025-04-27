@@ -28,9 +28,9 @@ function TopHeader() {
           <a
             href="tel:+911141573677"
             className="hover:underline"
-            aria-label="Call us at +91-11-41573677"
+            aria-label="Call us at +919891774769"
           >
-            +91-11-41573677
+            +91-989-1774769
           </a>
 
           <span className="mx-2 hidden md:inline" aria-hidden="true">
@@ -44,13 +44,13 @@ function TopHeader() {
           />
           <span className="sr-only">WhatsApp:</span>
           <a
-            href="https://wa.me/919718718254"
+            href="https://wa.me/919891774769"
             className="hover:underline"
-            aria-label="WhatsApp us at +91-9718718254"
+            aria-label="WhatsApp us at +919891774769"
             target="_blank"
             rel="noopener noreferrer"
           >
-            +91-9718718254
+            +91-989-1774769
           </a>
         </div>
 
@@ -59,11 +59,11 @@ function TopHeader() {
           <Mail size={16} className="stroke-[2]" aria-hidden="true" />
           <span className="sr-only">Email:</span>
           <Link
-            href="mailto:sales@treetrunktravel.com"
+            href="mailto:aoti.delhi@gmail.com"
             className="hover:underline"
-            aria-label="Email us at sales@treetrunktravel.com"
+            aria-label="Email us at aoti.delhi@gmail.com"
           >
-            sales@treetrunktravel.com
+            aoti.delhi@gmail.com
           </Link>
         </div>
       </div>
