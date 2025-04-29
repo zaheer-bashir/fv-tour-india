@@ -167,28 +167,6 @@ function TourPlanForm() {
             </div>
           </div>
 
-          <div className="col-span-full flex flex-col gap-2">
-            <label className="font-semibold">Services Required:</label>
-            <div className="flex items-center gap-6">
-              {[
-                { id: "hotel", label: "Hotel" },
-                { id: "flight", label: "Flight" },
-              ].map(({ id, label }) => (
-                <label key={id} className="flex items-center gap-2">
-                  <Checkbox.Root
-                    id={id}
-                    className="flex h-4 w-4 items-center justify-center rounded border border-gray-400 data-[state=checked]:border-blue-600"
-                  >
-                    <Checkbox.Indicator className="text-blue-600">
-                      <Check className="h-4 w-4" />
-                    </Checkbox.Indicator>
-                  </Checkbox.Root>
-                  {label}
-                </label>
-              ))}
-            </div>
-          </div>
-
           <div className="flex flex-col gap-2">
             <label className="font-semibold">Select Country</label>
             <Select.Root>

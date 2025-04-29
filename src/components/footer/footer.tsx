@@ -18,10 +18,10 @@ export function Footer() {
           priority
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center space-y-1">
-          <p className="text-lime-400 font-semibold text-sm sm:text-base">
+          <p className="text-white font-semibold text-sm sm:text-base">
             © {new Date().getFullYear()} | Art of Travel India Holidays Pvt Ltd
           </p>
-          <p className="text-lime-400 font-semibold text-sm sm:text-base">
+          <p className="text-white font-semibold text-sm sm:text-base">
             © {new Date().getFullYear()} | Approved by Ministry of Tourism
             India.
           </p>

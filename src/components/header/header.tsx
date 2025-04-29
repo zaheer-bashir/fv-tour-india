@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { PhoneCall, Send, Mail } from "lucide-react";
 
 function TopHeader() {
@@ -37,11 +38,7 @@ function TopHeader() {
             |
           </span>
 
-          <Send
-            size={16}
-            className="stroke-[2] -rotate-12"
-            aria-hidden="true"
-          />
+          <Image src="/whatsapp.svg" alt="WhatsApp" width={16} height={16} color="white" />
           <span className="sr-only">WhatsApp:</span>
           <a
             href="https://wa.me/919891774769"
