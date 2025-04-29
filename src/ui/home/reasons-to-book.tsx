@@ -17,26 +17,26 @@ const reasons: Reason[] = [
     id: 1,
     icon: "/owl.png",
     highlight: "200+",
-    label: "Reviews",
-    body: "We are blessed with excellent reviews on the most trusted travel sites. We provide value-for-money tour packages.",
-    cta: { text: "READ REVIEWS", href: "/reviews" },
+    label: "Reseñas",
+    body: "Contamos con excelentes reseñas en los sitios de viajes más confiables. Ofrecemos paquetes turísticos con la mejor relación calidad-precio.",
+    cta: { text: "LEER RESEÑAS", href: "/reviews" },
   },
   {
     id: 2,
     icon: "/walk.png",
     highlight: "500+",
-    label: "Tour Trips",
-    body: "We offer more than five-hundred tailor-made tour packages to turn your dream trip into reality.",
-    cta: { text: "PLAN MY TRIP", href: "/trips" },
+    label: "Viajes",
+    body: "Ofrecemos más de quinientos paquetes turísticos hechos a medida para convertir tu viaje soñado en realidad.",
+    cta: { text: "PLANEA MI VIAJE", href: "/trips" },
   },
   {
     id: 3,
     icon: "/support.png",
-    highlight: "Travel",
-    label: "Support",
-    body: "Our team is available 24 × 7. A travel expert will suggest the best plan within your budget and interests.",
+    highlight: "Soporte",
+    label: "de Viaje",
+    body: "Nuestro equipo está disponible 24 × 7. Un experto en viajes te sugerirá el mejor plan según tu presupuesto e intereses.",
     cta: {
-      text: "CALL: +91-9718718254",
+      text: "LLAMA: +91-9718718254",
       href: "tel:+919718718254",
     },
   },
@@ -46,8 +46,8 @@ function ReasonsToBook() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-10">
       <h2 className="mb-6 text-center text-2xl font-bold tracking-wide sm:text-3xl">
-        SOME <span className="text-[#F63C61]">GOOD</span> REASONS TO{" "}
-        <span className="text-[#F63C61]">BOOK</span> WITH US
+        ALGUNAS <span className="text-[#F63C61]">BUENAS</span> RAZONES PARA{" "}
+        <span className="text-[#F63C61]">RESERVAR</span> CON NOSOTROS
       </h2>
 
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">

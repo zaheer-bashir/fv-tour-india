@@ -10,8 +10,8 @@ import { motion } from "framer-motion";
 const tourPackages = [
   {
     id: 1,
-    title: "India Basics (Golden Triangle)",
-    subtitle: "Delhi, Jaipur, and Agra",
+    title: "India Básico (Triángulo Dorado)",
+    subtitle: "Delhi, Jaipur y Agra",
     nights: 5,
     days: 6,
     image: "https://artoftravel.co.in/wp-content/uploads/2023/02/4k.jpg",
@@ -21,7 +21,7 @@ const tourPackages = [
   },
   {
     id: 2,
-    title: "Royal Rajasthan",
+    title: "Rajastán Real",
     subtitle:
       "Delhi – Mandawa – Bikaner – Jaisalmer – Jodhpur – Udaipur – Pushkar – Jaipur – Agra",
     nights: 13,
@@ -34,9 +34,8 @@ const tourPackages = [
   },
   {
     id: 3,
-    title: "Classic Tour of India",
-    subtitle:
-      "Delhi – Jaipur – Agra – Khajuraho – Varanasi",
+    title: "Tour Clásico de India",
+    subtitle: "Delhi – Jaipur – Agra – Khajuraho – Varanasi",
     nights: 8,
     days: 9,
     image:
@@ -47,32 +46,31 @@ const tourPackages = [
   },
   {
     id: 4,
-    title: "The Golden Quadrilateral India",
-    subtitle:
-      "(Delhi – Jaipur – Agra – Varanasi – Delhi)",
+    title: "Taj y Tigre",
+    subtitle: "Delhi – Agra – Ranthambhore – Jaipur – Delhi",
     nights: 7,
     days: 8,
-    image: "https://artoftravel.co.in/wp-content/uploads/2024/10/Untitled-design-1.jpg",
-    ribbon: "TOP RATED",
+    image:
+      "https://artoftravel.co.in/wp-content/uploads/2025/04/Untitled-design.jpg",
+    ribbon: "MEJOR VALORADO",
     discount: "20%",
     ribbonColor: "bg-green-600",
   },
   {
     id: 5,
-    title: "Karnataka calling",
-    subtitle:
-      "Bangalore, Mysore, Hospet, Badami, Goa",
+    title: "Karnataka te llama",
+    subtitle: "Bangalore, Mysore, Hospet, Badami, Goa",
     nights: 9,
     days: 10,
     image:
       "https://artoftravel.co.in/wp-content/uploads/2023/02/180693-excyrhfhlh-1664704284.jpeg",
-    ribbon: "TOP RATED",
+    ribbon: "MEJOR VALORADO",
     discount: "20%",
     ribbonColor: "bg-green-600",
   },
   {
     id: 6,
-    title: "Sense of the South",
+    title: "Sentido del Sur",
     subtitle:
       "Cochin, Periyar, Munnar, Ooty, Mysore, Hassan, Hospet, Patadakal, Aihole, Badami, Goa, Mumbai",
     nights: 13,
@@ -98,7 +96,7 @@ const Ribbon = ({ label, color }: { label: string; color: string }) => (
 
 const DiscountBadge = ({ text }: { text: string }) => (
   <span className="absolute top-3 right-3 z-10 flex h-10 w-10 flex-col items-center justify-center rounded-full bg-red-600 text-[10px] font-semibold leading-tight text-white shadow-md">
-    SAVE
+    AHORRA
     <br />
     {text}
   </span>
@@ -109,7 +107,7 @@ function TourPackagesSection() {
     <section className="mx-auto w-full max-w-7xl px-4 py-12">
       <h2 className="mb-10 text-center text-2xl font-bold md:text-3xl">
         <span className="text-red-600">INDIA </span>
-        TOUR PACKAGES
+        PAQUETES TURÍSTICOS
       </h2>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -146,8 +144,8 @@ function TourPackagesSection() {
                   >
                     <path d="M12 2 1 21h22L12 2Z" />
                   </svg>
-                  {pkg.nights.toString().padStart(2, "0")} Nights /{" "}
-                  {pkg.days.toString().padStart(2, "0")} Days
+                  {pkg.nights.toString().padStart(2, "0")} Noches /{" "}
+                  {pkg.days.toString().padStart(2, "0")} Días
                 </div>
               </div>
 
@@ -156,7 +154,7 @@ function TourPackagesSection() {
                 <p className="text-sm text-muted-foreground">{pkg.subtitle}</p>
 
                 <Button className="mt-3 rounded-full bg-red-600 px-6 uppercase text-white hover:bg-red-700">
-                  Get Quote
+                  Solicitar Cotización
                 </Button>
               </CardContent>
             </Card>
