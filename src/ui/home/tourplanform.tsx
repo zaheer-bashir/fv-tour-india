@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import * as RadioGroup from "@radix-ui/react-radio-group";
-import * as Checkbox from "@radix-ui/react-checkbox";
 import * as Select from "@radix-ui/react-select";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
 
@@ -103,7 +102,9 @@ function TourPlanForm() {
 
           <div className="flex flex-col md:flex-row gap-6 items-stretch justify-between w-full md:col-span-2">
             <div className="flex flex-1 flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
-              <label className="font-semibold mb-2 md:mb-0">Date of Travel</label>
+              <label className="font-semibold mb-2 md:mb-0">
+                Date of Travel
+              </label>
               <div className="flex items-center gap-4">
                 <RadioGroup.Root
                   value={fixedDate ? "fixed" : "anytime"}

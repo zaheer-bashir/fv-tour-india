@@ -12,18 +12,18 @@ export function Footer() {
         className="relative w-full sm:h-[220px] py-16"
       >
         <Image
-          src="/footer-img.jpg"
-          alt="India landmarks collage"
+          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"
+          alt="Beautiful Indian landscape"
           fill
           priority
+          style={{ objectFit: "cover" }}
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center space-y-1">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center space-y-1 bg-black/40">
           <p className="text-white font-semibold text-sm sm:text-base">
             © {new Date().getFullYear()} | Art of Travel India Holidays Pvt Ltd
           </p>
           <p className="text-white font-semibold text-sm sm:text-base">
-            © {new Date().getFullYear()} | Approved by Ministry of Tourism
-            India.
+            Approved by Ministry of Tourism India.
           </p>
         </div>
 

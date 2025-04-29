@@ -35,8 +35,7 @@ const tourPackages = [
   {
     id: 3,
     title: "Classic Tour of India",
-    subtitle:
-      "Delhi – Jaipur – Agra – Khajuraho – Varanasi",
+    subtitle: "Delhi – Jaipur – Agra – Khajuraho – Varanasi",
     nights: 8,
     days: 9,
     image:
@@ -47,12 +46,12 @@ const tourPackages = [
   },
   {
     id: 4,
-    title: "The Golden Quadrilateral India",
-    subtitle:
-      "(Delhi – Jaipur – Agra – Varanasi – Delhi)",
+    title: "Taj and Tiger",
+    subtitle: "Delhi – Agra – Ranthambhore – Jaipur – Delhi",
     nights: 7,
     days: 8,
-    image: "https://artoftravel.co.in/wp-content/uploads/2024/10/Untitled-design-1.jpg",
+    image:
+      "https://artoftravel.co.in/wp-content/uploads/2025/04/Untitled-design.jpg",
     ribbon: "TOP RATED",
     discount: "20%",
     ribbonColor: "bg-green-600",
@@ -60,8 +59,7 @@ const tourPackages = [
   {
     id: 5,
     title: "Karnataka calling",
-    subtitle:
-      "Bangalore, Mysore, Hospet, Badami, Goa",
+    subtitle: "Bangalore, Mysore, Hospet, Badami, Goa",
     nights: 9,
     days: 10,
     image:
