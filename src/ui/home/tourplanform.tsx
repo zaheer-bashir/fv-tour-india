@@ -17,7 +17,7 @@ function TourPlanForm() {
       }}
     >
       <h2 className="mb-3 text-center text-white text-2xl font-bold md:text-3xl">
-        BIENVENIDO A TOUR OF INDIA
+        BIENVENIDO AL TOUR DE INDIA
       </h2>
       <div
         className="relative max-w-5xl mx-auto rounded-xl bg-white px-4 py-5 shadow-lg text-[12px]"
@@ -31,14 +31,14 @@ function TourPlanForm() {
         }}
       >
         <h2 className="mb-8 text-2xl text-center font-bold tracking-wide text-red-700">
-          VAMOS A PLANEAR TU VIAJE
+          HAGAMOS TU PLAN DE VIAJE
         </h2>
         <form
           onSubmit={(e) => e.preventDefault()}
           className="grid grid-cols-1 gap-6 md:grid-cols-2"
         >
           <div className="flex flex-col gap-2">
-            <label className="font-semibold">Nombre completo</label>
+            <label className="font-semibold">Ingresa tu Nombre Completo</label>
             <input
               type="text"
               placeholder="Ingresa tu nombre"
@@ -63,7 +63,7 @@ function TourPlanForm() {
                   {[
                     "Triángulo Dorado",
                     "Tour por Rajasthan",
-                    "Sur de la India",
+                    "Sur de India",
                     "Aventura",
                   ].map((option) => (
                     <Select.Item
@@ -83,27 +83,70 @@ function TourPlanForm() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="font-semibold">Correo electrónico</label>
+            <label className="font-semibold">
+              Dirección de Correo Electrónico{" "}
+              <span className="text-red-500">*</span>
+            </label>
             <input
               type="email"
-              placeholder="Ingresa tu correo electrónico"
+              placeholder="Ingresa tu dirección de correo válida"
               className="h-10 rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
+              required
             />
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="font-semibold">Número de contacto</label>
-            <input
-              type="tel"
-              placeholder="Ingresa tu número de contacto"
-              className="h-10 rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
-            />
+            <label className="font-semibold">
+              Número de Contacto <span className="text-red-500">*</span>
+            </label>
+            <div className="flex gap-2">
+              <Select.Root>
+                <Select.Trigger className="flex h-10 items-center justify-between rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none w-24">
+                  <Select.Value placeholder="+91" />
+                  <Select.Icon>
+                    <ChevronDown className="h-4 w-4 opacity-60" />
+                  </Select.Icon>
+                </Select.Trigger>
+                <Select.Content className="z-50 overflow-hidden rounded-md border border-gray-200 bg-white shadow-lg">
+                  <Select.ScrollUpButton className="flex items-center justify-center p-1">
+                    <ChevronUp className="h-4 w-4" />
+                  </Select.ScrollUpButton>
+                  <Select.Viewport className="p-1">
+                    {[
+                      { code: "+91", country: "India" },
+                      { code: "+1", country: "Estados Unidos" },
+                      { code: "+44", country: "Reino Unido" },
+                      { code: "+61", country: "Australia" },
+                      { code: "+1", country: "Canadá" },
+                    ].map(({ code, country }) => (
+                      <Select.Item
+                        key={code}
+                        value={code}
+                        className="relative flex cursor-pointer select-none items-center gap-2 rounded-md px-6 py-2 outline-none data-[highlighted]:bg-blue-50"
+                      >
+                        <Select.ItemText>{code}</Select.ItemText>
+                        <span className="text-gray-500 text-sm">{country}</span>
+                        <Select.ItemIndicator className="absolute left-2">
+                          <Check className="h-4 w-4 text-green-600" />
+                        </Select.ItemIndicator>
+                      </Select.Item>
+                    ))}
+                  </Select.Viewport>
+                </Select.Content>
+              </Select.Root>
+              <input
+                type="tel"
+                placeholder="Ingresa tu número de contacto"
+                className="flex-1 h-10 rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
+                required
+              />
+            </div>
           </div>
 
           <div className="flex flex-col md:flex-row gap-6 items-stretch justify-between w-full md:col-span-2">
             <div className="flex flex-1 flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
               <label className="font-semibold mb-2 md:mb-0">
-                Fecha de viaje
+                Fecha de Viaje
               </label>
               <div className="flex items-center gap-4">
                 <RadioGroup.Root
@@ -128,7 +171,7 @@ function TourPlanForm() {
                       className="h-4 w-4 rounded-full border border-gray-400 data-[state=checked]:border-blue-600 data-[state=checked]:bg-blue-600"
                     />
                     <label htmlFor="anytime" className="">
-                      Cualquier fecha
+                      Cualquier momento
                     </label>
                   </div>
                 </RadioGroup.Root>
@@ -157,7 +200,7 @@ function TourPlanForm() {
                 />
               </div>
               <div className="flex flex-col gap-2 flex-1">
-                <label className="font-semibold">Niños (Edad 6‑11)</label>
+                <label className="font-semibold">Niños (Edad 6‑11)</label>
                 <input
                   type="number"
                   min={0}
@@ -169,10 +212,10 @@ function TourPlanForm() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="font-semibold">Selecciona país</label>
+            <label className="font-semibold">Selecciona País</label>
             <Select.Root>
               <Select.Trigger className="flex h-10 items-center justify-between rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none">
-                <Select.Value placeholder="País de residencia" />
+                <Select.Value placeholder="País de Residencia" />
                 <Select.Icon>
                   <ChevronDown className="h-4 w-4 opacity-60" />
                 </Select.Icon>
@@ -209,7 +252,7 @@ function TourPlanForm() {
             <label className="font-semibold">Cuéntanos más</label>
             <textarea
               rows={1}
-              placeholder="Escribe tu mensaje"
+              placeholder="Escribe tus mensajes"
               className="rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
             />
           </div>

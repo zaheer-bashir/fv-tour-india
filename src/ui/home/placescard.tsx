@@ -46,7 +46,7 @@ const tourPackages = [
   },
   {
     id: 4,
-    title: "Taj y Tigre",
+    title: "Taj Y Tiger Tur",
     subtitle: "Delhi – Agra – Ranthambhore – Jaipur – Delhi",
     nights: 7,
     days: 8,
