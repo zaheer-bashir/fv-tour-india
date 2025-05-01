@@ -276,7 +276,7 @@ function TourPlanForm() {
         </form>
 
         <p className="mt-10 text-center text-xl font-medium text-gray-700 border-t border-gray-300 pt-4">
-          O
+          Or
           <br />
           Chatea en <span className="font-bold text-red-600">
             Whatsapp
