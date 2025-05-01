@@ -36,8 +36,8 @@ const reasons: Reason[] = [
     label: "Support",
     body: "Our team is available 24 × 7. A travel expert will suggest the best plan within your budget and interests.",
     cta: {
-      text: "CALL: +91-9718718254",
-      href: "tel:+919718718254",
+      text: "CALL: +91 9891774769",
+      href: "tel: +91 9891774769",
     },
   },
 ];

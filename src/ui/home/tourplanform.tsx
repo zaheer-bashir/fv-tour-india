@@ -83,21 +83,63 @@ function TourPlanForm() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="font-semibold">Email Address</label>
+            <label className="font-semibold">
+              Email Address <span className="text-red-500">*</span>
+            </label>
             <input
               type="email"
               placeholder="Enter your valid Email address"
               className="h-10 rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
+              required
             />
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="font-semibold">Contact Number</label>
-            <input
-              type="tel"
-              placeholder="Enter your contact number"
-              className="h-10 rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
-            />
+            <label className="font-semibold">
+              Contact Number <span className="text-red-500">*</span>
+            </label>
+            <div className="flex gap-2">
+              <Select.Root>
+                <Select.Trigger className="flex h-10 items-center justify-between rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none w-24">
+                  <Select.Value placeholder="+91" />
+                  <Select.Icon>
+                    <ChevronDown className="h-4 w-4 opacity-60" />
+                  </Select.Icon>
+                </Select.Trigger>
+                <Select.Content className="z-50 overflow-hidden rounded-md border border-gray-200 bg-white shadow-lg">
+                  <Select.ScrollUpButton className="flex items-center justify-center p-1">
+                    <ChevronUp className="h-4 w-4" />
+                  </Select.ScrollUpButton>
+                  <Select.Viewport className="p-1">
+                    {[
+                      { code: "+91", country: "India" },
+                      { code: "+1", country: "United States" },
+                      { code: "+44", country: "United Kingdom" },
+                      { code: "+61", country: "Australia" },
+                      { code: "+1", country: "Canada" },
+                    ].map(({ code, country }) => (
+                      <Select.Item
+                        key={code}
+                        value={code}
+                        className="relative flex cursor-pointer select-none items-center gap-2 rounded-md px-6 py-2 outline-none data-[highlighted]:bg-blue-50"
+                      >
+                        <Select.ItemText>{code}</Select.ItemText>
+                        <span className="text-gray-500 text-sm">{country}</span>
+                        <Select.ItemIndicator className="absolute left-2">
+                          <Check className="h-4 w-4 text-green-600" />
+                        </Select.ItemIndicator>
+                      </Select.Item>
+                    ))}
+                  </Select.Viewport>
+                </Select.Content>
+              </Select.Root>
+              <input
+                type="tel"
+                placeholder="Enter your contact number"
+                className="flex-1 h-10 rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
+                required
+              />
+            </div>
           </div>
 
           <div className="flex flex-col md:flex-row gap-6 items-stretch justify-between w-full md:col-span-2">
