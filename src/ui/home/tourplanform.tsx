@@ -47,39 +47,13 @@ function TourPlanForm() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="font-semibold">I am Interested in</label>
-            <Select.Root>
-              <Select.Trigger className="flex h-10 items-center justify-between rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none">
-                <Select.Value placeholder="I am Interested in" />
-                <Select.Icon>
-                  <ChevronDown className="h-4 w-4 opacity-60" />
-                </Select.Icon>
-              </Select.Trigger>
-              <Select.Content className="z-50 overflow-hidden rounded-md border border-gray-200 bg-white shadow-lg">
-                <Select.ScrollUpButton className="flex items-center justify-center p-1">
-                  <ChevronUp className="h-4 w-4" />
-                </Select.ScrollUpButton>
-                <Select.Viewport className="p-1">
-                  {[
-                    "Golden Triangle",
-                    "Rajasthan Tour",
-                    "South India",
-                    "Adventure",
-                  ].map((option) => (
-                    <Select.Item
-                      key={option}
-                      value={option}
-                      className="relative flex cursor-pointer select-none items-center gap-2 rounded-md px-6 py-2 outline-none data-[highlighted]:bg-blue-50"
-                    >
-                      <Select.ItemText>{option}</Select.ItemText>
-                      <Select.ItemIndicator className="absolute left-2">
-                        <Check className="h-4 w-4 text-green-600" />
-                      </Select.ItemIndicator>
-                    </Select.Item>
-                  ))}
-                </Select.Viewport>
-              </Select.Content>
-            </Select.Root>
+            <label className="font-semibold">Specify your Requirements </label>
+            <input
+              type="requirement"
+              placeholder="Specify your Requirements here"
+              className="h-10 rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
+              required
+            />
           </div>
 
           <div className="flex flex-col gap-2">
@@ -208,52 +182,6 @@ function TourPlanForm() {
                 />
               </div>
             </div>
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label className="font-semibold">Select Country</label>
-            <Select.Root>
-              <Select.Trigger className="flex h-10 items-center justify-between rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none">
-                <Select.Value placeholder="Country of Residence" />
-                <Select.Icon>
-                  <ChevronDown className="h-4 w-4 opacity-60" />
-                </Select.Icon>
-              </Select.Trigger>
-              <Select.Content className="z-50 overflow-hidden rounded-md border border-gray-200 bg-white shadow-lg">
-                <Select.ScrollUpButton className="flex items-center justify-center p-1">
-                  <ChevronUp className="h-4 w-4" />
-                </Select.ScrollUpButton>
-                <Select.Viewport className="p-1">
-                  {[
-                    "India",
-                    "United States",
-                    "United Kingdom",
-                    "Australia",
-                    "Canada",
-                  ].map((country) => (
-                    <Select.Item
-                      key={country}
-                      value={country}
-                      className="relative flex cursor-pointer select-none items-center gap-2 rounded-md px-6 py-2 outline-none data-[highlighted]:bg-blue-50"
-                    >
-                      <Select.ItemText>{country}</Select.ItemText>
-                      <Select.ItemIndicator className="absolute left-2">
-                        <Check className="h-4 w-4 text-green-600" />
-                      </Select.ItemIndicator>
-                    </Select.Item>
-                  ))}
-                </Select.Viewport>
-              </Select.Content>
-            </Select.Root>
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label className="font-semibold">Tell us more</label>
-            <textarea
-              rows={1}
-              placeholder="Type your messages"
-              className="rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none"
-            />
           </div>
 
           <div className="md:col-span-2">
