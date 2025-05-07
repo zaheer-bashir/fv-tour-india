@@ -34,7 +34,7 @@ export async function POST(request: Request) {
   const subject = "New Customer Inquiry";
 
   try {
-    await sendEmail(email, "zaheerkpr3@gmail.com", subject, html);
+    await sendEmail(email, "artoftravel61@gmail.com", subject, html);
     return NextResponse.json({
       success: true,
       message: "Email sent successfully!",
