@@ -30,6 +30,12 @@ export async function POST(request: Request) {
     duration,
     adults,
     kids,
+<<<<<<< HEAD
+=======
+    services,
+    country,
+    message,
+>>>>>>> origin/sp-version
   });
   const subject = "New Customer Inquiry";
 
