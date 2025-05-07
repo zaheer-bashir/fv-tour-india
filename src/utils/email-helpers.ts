@@ -178,26 +178,7 @@ export const generateEmailTemplate = (
               <span class="label">Kids (6-11)</span>
               <div class="value">${details.kids ?? "0"}</div>
             </div>
-            <div class="field">
-              <span class="label">Services Required</span>
-              <div class="value">
-                ${
-                  Array.isArray(details.services) && details.services.length > 0
-                    ? details.services.join(", ")
-                    : "Not specified"
-                }
-              </div>
-            </div>
           </div>
-          <div class="section-title">Additional Message</div>
-          <div class="field" style="width:100%;">
-            <div class="value">${
-              details.message
-                ? details.message.replace(/\n/g, "<br>")
-                : "No message provided."
-            }</div>
-          </div>
-        </div>
         <div class="footer">
           This is an automated email from the Tour of India contact form.
         </div>

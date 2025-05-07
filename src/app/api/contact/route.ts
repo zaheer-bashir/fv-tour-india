@@ -12,20 +12,9 @@ export async function POST(request: Request) {
     duration,
     adults,
     kids,
-    services,
-    country,
-    message,
   } = await request.json();
 
-  if (
-    !name ||
-    !interest ||
-    !email ||
-    !phone ||
-    !duration ||
-    !adults ||
-    !country
-  ) {
+  if (!name || !interest || !email || !phone || !duration || !adults) {
     return NextResponse.json(
       {
         success: false,
@@ -41,9 +30,12 @@ export async function POST(request: Request) {
     duration,
     adults,
     kids,
+<<<<<<< HEAD
+=======
     services,
     country,
     message,
+>>>>>>> origin/sp-version
   });
   const subject = "New Customer Inquiry";
 

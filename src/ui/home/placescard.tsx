@@ -63,7 +63,7 @@ const tourPackages = [
     nights: 9,
     days: 10,
     image:
-      "https://artoftravel.co.in/wp-content/uploads/2023/02/180693-excyrhfhlh-1664704284.jpeg",
+      "https://www.shutterstock.com/image-photo/mysore-palace-known-amba-vilas-600nw-2328172511.jpg",
     ribbon: "MEJOR VALORADO",
     discount: "20%",
     ribbonColor: "bg-green-600",
@@ -76,7 +76,7 @@ const tourPackages = [
     nights: 13,
     days: 14,
     image:
-      "https://artoftravel.co.in/wp-content/uploads/2023/02/iStock-471119274-1.jpg",
+      "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2VyYWxhJTIwYmFja3dhdGVyc3xlbnwwfHwwfHx8MA%3D%3D",
     ribbon: "POPULAR",
     discount: "20%",
     ribbonColor: "bg-red-600",

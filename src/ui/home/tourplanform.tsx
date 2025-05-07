@@ -1,20 +1,65 @@
 "use client";
 
-import { useState } from "react";
+import { useForm, Controller } from "react-hook-form";
 import * as RadioGroup from "@radix-ui/react-radio-group";
 import * as Select from "@radix-ui/react-select";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
 
+type FormData = {
+  name: string;
+  interest: string;
+  email: string;
+  phoneCode: string;
+  phoneNumber: string;
+  travelMonth: string;
+  fixedDate: string;
+  duration: string;
+  adults: number;
+  kids: number;
+};
+
 function TourPlanForm() {
-  const [fixedDate, setFixedDate] = useState(true);
+  const { register, handleSubmit, control, reset } = useForm<FormData>({
+    defaultValues: {
+      fixedDate: "fixed",
+      phoneCode: "+91",
+      adults: 1,
+      kids: 0,
+    },
+  });
+
+  const onSubmit = async (data: FormData) => {
+    const combinedPhone = `${data.phoneCode}${data.phoneNumber}`;
+    const payload = {
+      name: data.name,
+      interest: data.interest,
+      email: data.email,
+      phone: combinedPhone,
+      travelMonth: data.travelMonth,
+      fixedDate: data.fixedDate === "fixed",
+      duration: data.duration,
+      adults: data.adults,
+      kids: data.kids,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = await res.json();
+      console.log(result);
+      reset();
+    } catch (error) {
+      console.error("Submission error", error);
+    }
+  };
 
   return (
     <section
-      className="
-      bg-cover bg-center px-4 py-10"
-      style={{
-        backgroundImage: "url('/slide_hero.jpg')",
-      }}
+      className="bg-cover bg-center px-4 py-10"
+      style={{ backgroundImage: "url('/slide_hero.jpg')" }}
     >
       <h2 className="mb-3 text-center text-white text-2xl font-bold md:text-3xl">
         BIENVENIDO AL TOUR DE INDIA
@@ -34,7 +79,7 @@ function TourPlanForm() {
           HAGAMOS TU PLAN DE VIAJE
         </h2>
         <form
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={handleSubmit(onSubmit)}
           className="grid grid-cols-1 gap-6 md:grid-cols-2"
         >
           <div className="flex flex-col gap-2">
@@ -43,6 +88,7 @@ function TourPlanForm() {
               type="text"
               placeholder="Ingresa tu nombre"
               className="h-10 rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
+              {...register("name", { required: true })}
             />
           </div>
 
@@ -52,6 +98,7 @@ function TourPlanForm() {
               type="text"
               placeholder="Especifique su requisite"
               className="h-10 rounded-md border border-gray-300 px-3 text-sm focus:border-blue-500 focus:outline-none"
+              {...register("interest")}
             />
           </div>
 
@@ -64,7 +111,7 @@ function TourPlanForm() {
               type="email"
               placeholder="Ingresa tu dirección de correo válida"
               className="h-10 rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
-              required
+              {...register("email", { required: true })}
             />
           </div>
 
@@ -73,45 +120,57 @@ function TourPlanForm() {
               Número de Contacto <span className="text-red-500">*</span>
             </label>
             <div className="flex gap-2">
-              <Select.Root>
-                <Select.Trigger className="flex h-10 items-center justify-between rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none w-24">
-                  <Select.Value placeholder="+91" />
-                  <Select.Icon>
-                    <ChevronDown className="h-4 w-4 opacity-60" />
-                  </Select.Icon>
-                </Select.Trigger>
-                <Select.Content className="z-50 overflow-hidden rounded-md border border-gray-200 bg-white shadow-lg">
-                  <Select.ScrollUpButton className="flex items-center justify-center p-1">
-                    <ChevronUp className="h-4 w-4" />
-                  </Select.ScrollUpButton>
-                  <Select.Viewport className="p-1">
-                    {[
-                      { code: "+91", country: "India" },
-                      { code: "+1", country: "Estados Unidos" },
-                      { code: "+44", country: "Reino Unido" },
-                      { code: "+61", country: "Australia" },
-                      { code: "+1", country: "Canadá" },
-                    ].map(({ code, country }) => (
-                      <Select.Item
-                        key={code}
-                        value={code}
-                        className="relative flex cursor-pointer select-none items-center gap-2 rounded-md px-6 py-2 outline-none data-[highlighted]:bg-blue-50"
-                      >
-                        <Select.ItemText>{code}</Select.ItemText>
-                        <span className="text-gray-500 text-sm">{country}</span>
-                        <Select.ItemIndicator className="absolute left-2">
-                          <Check className="h-4 w-4 text-green-600" />
-                        </Select.ItemIndicator>
-                      </Select.Item>
-                    ))}
-                  </Select.Viewport>
-                </Select.Content>
-              </Select.Root>
+              <Controller
+                control={control}
+                name="phoneCode"
+                render={({ field }) => (
+                  <Select.Root
+                    {...field}
+                    defaultValue="+91"
+                    onValueChange={field.onChange}
+                  >
+                    <Select.Trigger className="flex h-10 items-center justify-between rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none w-24">
+                      <Select.Value placeholder="+91" />
+                      <Select.Icon>
+                        <ChevronDown className="h-4 w-4 opacity-60" />
+                      </Select.Icon>
+                    </Select.Trigger>
+                    <Select.Content className="z-50 overflow-hidden rounded-md border border-gray-200 bg-white shadow-lg">
+                      <Select.ScrollUpButton className="flex items-center justify-center p-1">
+                        <ChevronUp className="h-4 w-4" />
+                      </Select.ScrollUpButton>
+                      <Select.Viewport className="p-1">
+                        {[
+                          { code: "+91", country: "India" },
+                          { code: "+1", country: "Estados Unidos" },
+                          { code: "+44", country: "Reino Unido" },
+                          { code: "+61", country: "Australia" },
+                          { code: "+1", country: "Canadá" },
+                        ].map(({ code, country }) => (
+                          <Select.Item
+                            key={code}
+                            value={code}
+                            className="relative flex cursor-pointer select-none items-center gap-2 rounded-md px-6 py-2 outline-none data-[highlighted]:bg-blue-50"
+                          >
+                            <Select.ItemText>{code}</Select.ItemText>
+                            <span className="text-gray-500 text-sm">
+                              {country}
+                            </span>
+                            <Select.ItemIndicator className="absolute left-2">
+                              <Check className="h-4 w-4 text-green-600" />
+                            </Select.ItemIndicator>
+                          </Select.Item>
+                        ))}
+                      </Select.Viewport>
+                    </Select.Content>
+                  </Select.Root>
+                )}
+              />
               <input
                 type="tel"
                 placeholder="Ingresa tu número de contacto"
                 className="flex-1 h-10 rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
-                required
+                {...register("phoneNumber", { required: true })}
               />
             </div>
           </div>
@@ -122,36 +181,43 @@ function TourPlanForm() {
                 Fecha de Viaje
               </label>
               <div className="flex items-center gap-4">
-                <RadioGroup.Root
-                  value={fixedDate ? "fixed" : "anytime"}
-                  onValueChange={(val) => setFixedDate(val === "fixed")}
-                  className="flex items-center gap-4"
-                >
-                  <div className="flex items-center gap-1">
-                    <RadioGroup.Item
-                      id="fixed"
-                      value="fixed"
-                      className="h-4 w-4 rounded-full border border-gray-400 data-[state=checked]:border-blue-600 data-[state=checked]:bg-blue-600"
-                    />
-                    <label htmlFor="fixed" className="text-sm">
-                      Fija
-                    </label>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <RadioGroup.Item
-                      id="anytime"
-                      value="anytime"
-                      className="h-4 w-4 rounded-full border border-gray-400 data-[state=checked]:border-blue-600 data-[state=checked]:bg-blue-600"
-                    />
-                    <label htmlFor="anytime" className="">
-                      Cualquier momento
-                    </label>
-                  </div>
-                </RadioGroup.Root>
+                <Controller
+                  control={control}
+                  name="fixedDate"
+                  render={({ field }) => (
+                    <RadioGroup.Root
+                      value={field.value}
+                      onValueChange={field.onChange}
+                      className="flex items-center gap-4"
+                    >
+                      <div className="flex items-center gap-1">
+                        <RadioGroup.Item
+                          id="fixed"
+                          value="fixed"
+                          className="h-4 w-4 rounded-full border border-gray-400 data-[state=checked]:border-blue-600 data-[state=checked]:bg-blue-600"
+                        />
+                        <label htmlFor="fixed" className="text-sm">
+                          Fija
+                        </label>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <RadioGroup.Item
+                          id="anytime"
+                          value="anytime"
+                          className="h-4 w-4 rounded-full border border-gray-400 data-[state=checked]:border-blue-600 data-[state=checked]:bg-blue-600"
+                        />
+                        <label htmlFor="anytime" className="text-sm">
+                          Cualquier momento
+                        </label>
+                      </div>
+                    </RadioGroup.Root>
+                  )}
+                />
               </div>
               <input
                 type="month"
                 className="mt-3 md:mt-0 h-10 rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none w-full md:w-auto"
+                {...register("travelMonth")}
               />
             </div>
             <div className="flex flex-1 flex-col md:flex-row items-stretch gap-4">
@@ -161,6 +227,7 @@ function TourPlanForm() {
                   type="text"
                   placeholder="Duración"
                   className="h-10 rounded-md border border-gray-300 px-3 text-sm focus:border-blue-500 focus:outline-none"
+                  {...register("duration", { required: true })}
                 />
               </div>
               <div className="flex flex-col gap-2 flex-1">
@@ -170,6 +237,10 @@ function TourPlanForm() {
                   min={1}
                   defaultValue={1}
                   className="h-10 w-full rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
+                  {...register("adults", {
+                    required: true,
+                    valueAsNumber: true,
+                  })}
                 />
               </div>
               <div className="flex flex-col gap-2 flex-1">
@@ -179,6 +250,7 @@ function TourPlanForm() {
                   min={0}
                   defaultValue={0}
                   className="h-10 w-full rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none"
+                  {...register("kids", { valueAsNumber: true })}
                 />
               </div>
             </div>

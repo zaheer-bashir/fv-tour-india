@@ -3,7 +3,8 @@ import Image from "next/image";
 import {
   TourPlanForm,
   TourPackagesSection,
-  ReasonsToBook
+  ReasonsToBook,
+  WhatsappFloating,
 } from "@/ui/home";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <TourPlanForm />
       <TourPackagesSection />
       <ReasonsToBook />
+      <WhatsappFloating />
     </>
   );
 }
