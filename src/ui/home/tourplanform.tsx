@@ -1,9 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import * as RadioGroup from "@radix-ui/react-radio-group";
 import * as Select from "@radix-ui/react-select";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
+
+import { api } from "@/utils";
 
 type FormData = {
   name: string;
@@ -27,8 +31,10 @@ function TourPlanForm() {
       kids: 0,
     },
   });
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const onSubmit = async (data: FormData) => {
+    setIsLoading(true);
     const combinedPhone = `${data.phoneCode}${data.phoneNumber}`;
     const payload = {
       name: data.name,
@@ -43,16 +49,13 @@ function TourPlanForm() {
     };
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const result = await res.json();
-      console.log(result);
+      const response: any = await api.post("/contact", payload);
+      toast.success("Correo electrónico enviado exitosamente!");
       reset();
     } catch (error) {
       console.error("Submission error", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -260,6 +263,7 @@ function TourPlanForm() {
             <button
               type="submit"
               className="mx-auto flex px-6 items-center justify-center gap-2 rounded-full bg-red-700 py-3 font-semibold uppercase tracking-wide text-white hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2"
+              disabled={isLoading}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -269,7 +273,7 @@ function TourPlanForm() {
               >
                 <path d="M6.547 14.72c-2.546 0-4.532-1.897-4.532-4.483 0-1.158.345-2.078 1.04-2.754C3.216 6.84 4.033 6.5 5 6.5h2.566c.19 0 .335-.046.433-.139.097-.093.146-.236.146-.428 0-.057-.014-.113-.041-.166l-.625-1.21c-.118-.23-.177-.39-.177-.48 0-.195.068-.344.205-.445C7.515 3.159 8.259 3 9.2 3c1.56 0 2.637.39 3.23 1.17C12.904 4.55 13.2 5.45 13.2 6.6c0 3.145-1.58 5.692-4.75 7.64l-.354.215-.179.105-.159.09-.137.064-.119.05-.11.032-.09.026-.076.016-.065.01-.057.006-.05.002z" />
               </svg>
-              CONSULTAR AHORA
+              {isLoading ? "Cargando..." : "CONSULTAR AHORA"}
             </button>
           </div>
         </form>

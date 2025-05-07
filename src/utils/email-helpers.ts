@@ -12,14 +12,14 @@ export const sendEmail = async (
     port: 587,
     secure: true,
     auth: {
-      user: "zaheerkpr3@gmail.com",
-      pass: "nhxz netp avxq iaat",
+      user: "artoftravel61@gmail.com",
+      pass: "qxvk pjri xqra pnru",
     },
   });
 
   await transporter.sendMail({
     from,
-    to: to || "Bill@stoneconcepts.net",
+    to: to,
     subject,
     html,
   });
