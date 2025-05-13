@@ -20,6 +20,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16896171707"
+          strategy="afterInteractive"
+        />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-J4CEWRP1HC"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-16896171707');
+            gtag('config', 'G-J4CEWRP1HC');
+          `}
+        </Script>
+      </head>
       <body className={montserrat.className}>
         <DefaultLayout>{children}</DefaultLayout>
         <Script id="google-ads-conversion" strategy="afterInteractive">
