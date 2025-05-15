@@ -1,5 +1,11 @@
 "use client";
 
+declare global {
+  interface Window {
+    gtag: (type: string, action: string, config: object) => void;
+  }
+}
+
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { toast } from "react-hot-toast";
@@ -52,11 +58,30 @@ function TourPlanForm() {
       const response: any = await api.post("/contact", payload);
       toast.success("Correo electrónico enviado exitosamente!");
       reset();
+
+      // Add this line to call the gtag conversion function
+      gtag_report_conversion();
     } catch (error) {
       console.error("Submission error", error);
     } finally {
       setIsLoading(false);
     }
+  };
+
+  // Define the gtag_report_conversion function here or in a separate file
+  const gtag_report_conversion = (url?: string) => {
+    var callback = function () {
+      if (typeof url != "undefined") {
+        window.location.href = url;
+      }
+    };
+    window.gtag("event", "conversion", {
+      send_to: "AW-16896171707/bq4tCNrN-McaELu93Pg-",
+      value: 1.0,
+      currency: "INR",
+      event_callback: callback,
+    });
+    return false;
   };
 
   return (
@@ -219,6 +244,7 @@ function TourPlanForm() {
               </div>
               <input
                 type="month"
+                placeholder="MM/YYYY"
                 className="mt-3 md:mt-0 h-10 rounded-md border border-gray-300 px-3 focus:border-blue-500 focus:outline-none w-full md:w-auto"
                 {...register("travelMonth")}
               />
@@ -271,7 +297,7 @@ function TourPlanForm() {
                 viewBox="0 0 16 16"
                 className="h-4 w-4"
               >
-                <path d="M6.547 14.72c-2.546 0-4.532-1.897-4.532-4.483 0-1.158.345-2.078 1.04-2.754C3.216 6.84 4.033 6.5 5 6.5h2.566c.19 0 .335-.046.433-.139.097-.093.146-.236.146-.428 0-.057-.014-.113-.041-.166l-.625-1.21c-.118-.23-.177-.39-.177-.48 0-.195.068-.344.205-.445C7.515 3.159 8.259 3 9.2 3c1.56 0 2.637.39 3.23 1.17C12.904 4.55 13.2 5.45 13.2 6.6c0 3.145-1.58 5.692-4.75 7.64l-.354.215-.179.105-.159.09-.137.064-.119.05-.11.032-.09.026-.076.016-.065.01-.057.006-.05.002z" />
+                <path d="M6.547 14.72c-2.546 0-4.532-1.897-4.532-4.483 0-1.158.345-2.078 1.04-2.754C3.216 6.84 4.033 6.5 5 6.5h2.566c.19 0 .335-.046.433-.139.097-.093.146-.236.146-.428 0-.057-.014-.113-.041-.166l-.625-1.21c-.118-.23-.177-.39-.177-.48 0-.195.068-.344.205-.445C7.515 3.159 8.259 3 9.2 3c1.56 0 2.637.39 3.23 1.17C12.904 4.55 13.2 5.45 13.2 6.6c.003.465-.035.895-.114 1.287-.114.59-.343 1.088-.69 1.487-.348.399-.818.667-1.394.801.121.438.191.848.214 1.223.023.375-.021.725-.13 1.05-.109.324-.33.605-.652.824-.322.22-.74.342-1.253.342z" />
               </svg>
               {isLoading ? "Cargando..." : "CONSULTAR AHORA"}
             </button>

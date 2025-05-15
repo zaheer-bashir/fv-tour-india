@@ -9,7 +9,7 @@ type Reason = {
   highlight: string;
   label: string;
   body: string;
-  cta: { text: string; href: string };
+  cta: { text: string };
 };
 
 const reasons: Reason[] = [
@@ -19,7 +19,7 @@ const reasons: Reason[] = [
     highlight: "200+",
     label: "Reseñas",
     body: "Contamos con excelentes reseñas en los sitios de viajes más confiables. Ofrecemos paquetes turísticos con la mejor relación calidad-precio.",
-    cta: { text: "LEER RESEÑAS", href: "/reviews" },
+    cta: { text: "LEER RESEÑAS" },
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const reasons: Reason[] = [
     highlight: "500+",
     label: "Viajes",
     body: "Ofrecemos más de quinientos paquetes turísticos hechos a medida para convertir tu viaje soñado en realidad.",
-    cta: { text: "PLANEA MI VIAJE", href: "/trips" },
+    cta: { text: "PLANEA MI VIAJE" },
   },
   {
     id: 3,
@@ -37,7 +37,6 @@ const reasons: Reason[] = [
     body: "Nuestro equipo está disponible 24 × 7. Un experto en viajes te sugerirá el mejor plan según tu presupuesto e intereses.",
     cta: {
       text: "LLAMA: +91 9891774769",
-      href: "tel: +91 9891774769",
     },
   },
 ];
@@ -77,11 +76,10 @@ function ReasonsToBook() {
             </p>
 
             <Button
-              asChild
               variant="ghost"
               className="rounded-full border border-[#262626] bg-white px-8 py-2 text-xs font-semibold uppercase tracking-wide text-[#262626] hover:bg-white hover:text-[#262626] focus:outline-none"
             >
-              <a href={r.cta.href}>{r.cta.text}</a>
+              {r.cta.text}
             </Button>
           </Card>
         ))}
